@@ -7,8 +7,7 @@ exports.lambdaHandler = async (event, context) => {
         const filtroCurso = createFiltroObjectService.createFiltroObject(event.body);
         const curso = await getCourseService.getCourse(filtroCurso);
 
-        console.log(curso);
-        if (curso)
+        if (curso == {})
             return defaultResult(200, curso);
         else
             return errorResult(204, 'Não foram encontrados detalhe para o curso ' + filtroCurso.nome + ' da categoria ' + filtroCurso.categoria);

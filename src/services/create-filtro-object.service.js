@@ -5,15 +5,13 @@ exports.createFiltroObject = function (body) {
     };
 
     if (body) {
-        const bodyJson = JSON.parse(body);
-
-        if (!bodyJson.categoria)
+        if (!body.categoria)
             throw 'Corpo da requsição não contém categoria';
-        if (!bodyJson.nome)
+        if (!body.nome)
             throw 'Corpo da requisição não contém nome';
 
-        filtroRetorno.categoria = bodyJson.categoria;
-        filtroRetorno.nome = bodyJson.nome;
+        filtroRetorno.categoria = body.categoria;
+        filtroRetorno.nome = body.nome;
     }
     else {
         throw 'Nenhum corpo na requisição';

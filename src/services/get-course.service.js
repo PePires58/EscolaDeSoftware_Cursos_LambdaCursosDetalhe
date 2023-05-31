@@ -9,7 +9,7 @@ exports.getCourse = async function (filtros) {
     const hasData = data.Item;
 
     if (hasData) {
-        createCourseObjectService.createCourseObject(data.Item);
+        objetoRetorno = createCourseObjectService.createCourseObject(data.Item);
     }
 
     return objetoRetorno;

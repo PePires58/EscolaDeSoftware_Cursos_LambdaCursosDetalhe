@@ -12,10 +12,12 @@ exports.lambdaHandler = async (event, context) => {
         const filtroCurso = createFiltroObjectService.createFiltroObject(event.queryStringParameters);
         const curso = await getCourseService.getCourse(filtroCurso);
 
-        if (curso == {})
-            return defaultResult(200, curso);
-        else
+        console.log(curso);
+        if (Object.keys(curso).length === 0)
             return errorResult(204, 'Não foram encontrados detalhe para o curso ' + filtroCurso.nome + ' da categoria ' + filtroCurso.categoria);
+        else
+            return defaultResult(200, curso);
+
     } catch (error) {
         return errorResult(500, error);
     }

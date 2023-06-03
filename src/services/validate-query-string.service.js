@@ -1,7 +1,7 @@
 exports.validateQueryString = function (queryString) {
     let errors = [];
 
-    if (Object.entries(queryString).length == 0) {
+    if (!queryString || Object.entries(queryString).length == 0) {
         errors.push('Nenhum filtro específicado');
     }
     else {

@@ -2,6 +2,15 @@ const assert = require('assert').strict;
 const validateQueryStringService = require('../services/validate-query-string.service');
 
 describe('Unit test for valida-query-string.service', function () {
+    it('Should not throw an error', function () {
+
+        const corpoRequisao = undefined;
+
+        assert.doesNotThrow(() => {
+            validateQueryStringService.validateQueryString(corpoRequisao);
+        });
+    });
+
     it('Should have an error "Nenhum filtro específicado"', function () {
 
         const corpoRequisao = {};
@@ -11,7 +20,7 @@ describe('Unit test for valida-query-string.service', function () {
         assert.equal(errors[0], 'Nenhum filtro específicado');
     });
 
-    it('Should throw an error "Categoria do curso é obrigatória"', function () {
+    it('Should have an error "Categoria do curso é obrigatória"', function () {
 
         const corpoRequisao = { "teste": "teste" };
         const errors = validateQueryStringService.validateQueryString(corpoRequisao);
@@ -20,7 +29,7 @@ describe('Unit test for valida-query-string.service', function () {
         assert.equal(errors[0], 'Categoria do curso é obrigatória');
     });
 
-    it('Should throw an error "Nome do curso é obrigatório"', function () {
+    it('Should have an error "Nome do curso é obrigatório"', function () {
 
         const corpoRequisao = { "categoria": "Computação em nuvem" };
 

@@ -1,11 +1,11 @@
-const scanDynamoDbService = require('./scan-dynamodb.service');
+const getItemDynamoDbService = require('./get-item-dynamodb.service');
 const createCourseObjectService = require('./create-course-object.service');
 
 exports.getCourse = async function (filtros) {
 
     let objetoRetorno = {};
 
-    const data = await scanDynamoDbService.getCoursesFromDb(filtros);
+    const data = await getItemDynamoDbService.getCoursesFromDb(filtros);
     const hasData = data.Item;
 
     if (hasData) {

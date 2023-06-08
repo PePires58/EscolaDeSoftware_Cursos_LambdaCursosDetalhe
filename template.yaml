@@ -10,7 +10,7 @@ Parameters:
     Type: String
 
 Resources:  
-  CursosLambdaCursosFn:
+  CursosLambdaCursosDetalheFn:
     Type: AWS::Serverless::Function
     Properties:
       Description: get courses from database
@@ -31,3 +31,16 @@ Resources:
         Value: Cursos
       - Key: Servico
         Value: Lambda
+
+  CursosLambdaCursosDetalheLogGroup: 
+    Type: AWS::Logs::LogGroup
+    Properties: 
+      LogGroupName: !Join ["", ["/aws/lambda/", !Ref Environment, "_escoladesoftware-cursos-lambdacursosdetalhefn"]]
+      RetentionInDays: 3
+    Tags: 
+      - Key: Ambiente
+        Value: !Ref Environment
+      - Key: Microservico
+        Value: Cursos
+      - Key: Servico
+        Value: LogGroup

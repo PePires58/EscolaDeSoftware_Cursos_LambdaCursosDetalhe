@@ -1,4 +1,4 @@
-name: Development workflow - Lambda Function - Prod
+name: Production workflow - Lambda Function - Prod
 on:
   push:
     branches: [main]
